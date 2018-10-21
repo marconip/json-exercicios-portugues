@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <title>JS JSON tutorial practicing</title>
+</head>
+
+<body>
+    <h1>JSON - Só trabalha com uso de servidor</h1>
+
+    <section>
+        <strong>1) JSON - com o uso "if (this.readyState == 4 && this.status == 200)" .</strong>
+        <p>jQuery comentado faz o mesmo em pouca linhas, usando: "getJSON()" mais o caminho do arquivo.</p>
+        <p>1 - Cria uma variável com "XMLHttpRequest()" que informa que vai chamar o link de algum servidor</p>
+        <p>2 - Com a variável que foi criada, adicione o comando ".open("GET","linkDoJsonAqui", true), buscara o arquivo .json</p>
+        <p>3 - Com a variável que foi criada, adicione o comando ".send" informar que quer exibir o link do arquivo que foi
+            buscado com o ".open"</p>
+        <p>4 - Com a variável que foi criada, adicione o comando ".onreadystatechange" com uma função</p>
+        <p>5 - Dentro da função cria um "if" com (this.readyState == 4 && this.status == 200)</p>
+        <p>6 - Dentro do "if" cria uma variável com "JSON.parse(this.responseText)" que é um json padrão nativo do javascript
+            </p>
+        <p>7 - Exibir no html todas as arrays da primeira pessoa do arquivo .json externo</p>
+        <i id="demo"></i>
+
+        <script>          
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "json/json_demo.json", true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myObj3 = JSON.parse(this.responseText);
+
+                    var mostra = document.getElementById("demo");
+                    mostra.innerHTML = myObj3[0].name + "<br/>";
+                    mostra.innerHTML += "tem um: " + myObj3[0].pets[1].animal + "<br/>";
+                    mostra.innerHTML += "chamado: " + myObj3[0].pets[1].name;
+                }
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <strong>2) JSON - sem o "if"</strong>
+        <p>1 - Cria uma variável com "XMLHttpRequest()" que informa que vai chamar o link de algum servidor</p>
+        <p>2 - Com a variável que foi criada, adicione o comando ".open("GET","linkDoJsonAqui", true), buscara o arquivo .json</p>
+        <p>3 - Com a variável que foi criada, adicione o comando ".send" informar que quer exibir o link do arquivo que foi
+            buscado com o ".open"</p>
+        <p>4 - Com a variável que foi criada, adicione o comando ".onload" com uma função</p>
+        <p>5 - Dentro da função cria uma variável com "JSON.parse(this.responseText)" que é um json padrão nativo do javascript
+            </p>
+        <p>6 - Exibir no html todas as arrays da seguna pessoa do arquivo .json externo</p>
+        <i id="demo2"></i>
+
+        <script>        
+            var request = new XMLHttpRequest();
+            request.open("GET", "json/json_demo.json", true);
+            request.send();
+            request.onload = function () {
+                var meusdados = JSON.parse(this.responseText);
+
+                document.getElementById("demo2").innerHTML = meusdados[1].name;
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <strong>3) JSON - com jQuery</strong>
+        <p>Comece com o comando "getJSON()" dentro dos parenteses insere o link do arquivo externo mais função</p>
+        <p>entre parenteses da função insirá um nome qualquer para os dados</p>
+        <p>Exibir no html nome e idade da primeira pessoa e todas as informações da seguna pessoa, vindas do arquivo .json externo</p>
+        <i id="demo3"></i>
+
+        <script>
+            $.getJSON("json/json_demo.json", function (myObj3) {
+                document.getElementById("demo3").innerHTML = myObj3[0].name + " " + myObj3[0].age;
+            });
+        </script>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <title>JS JSON tutorial practicing</title>
+</head>
+
+<body>
+    <h1>JSON - Internos</h1>
+
+    <section>
+        <strong>1) Converte um objeto JavaScript em uma string JSON.</strong>
+        <p>Cria as array e com o "JSON.parse" retorna todas as arrays</p>
+        <p>Escreve no HTML: name: John, age: 31, city: New York</p>
+        <i id="demo"></i>
+
+        <script>
+            var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+            var myObj1 = JSON.parse(myJSON);
+            document.getElementById("demo").innerHTML = myObj1.city;
+        </script>
+    </section>
+    
+
+    <section>
+        <strong>2) Armazena (simula o servidor) e recupere dados (vindos do servidor simulado).</strong>
+        <p>Cria um array local e depois exibe-os atraves do JS</p>
+        <p>1 - Cria as arrays (name: Jordan, age: 20, city: Miami)</p>
+        <p>2 - Pega as arrays atraves do "JSON.stringify()"</p>
+        <p>3 - Enviar o json com "localStorage.setItem()" </p>
+        <p>4 - Recuperando os dados com "localStorage.getItem()"</p>
+        <p>5 - Enplementa com o json padrão nativo do javascript "JSON.parse(this.responseText)" pegando o que foi recuperado
+            </p>
+        <p>6 - Exibir no html todas as arrays</p>
+        <i id="demo2"></i>
+
+        <script>
+            var myObj2, myJSON, text, obj;
+            //Armazenando dados (simula o servidor):
+            myObj2 = { name: "Jordan", age: 20, city: "Miami" };
+            myJSON = JSON.stringify(myObj2);
+            localStorage.setItem("testJSON", myJSON);
+
+            //Recuperando dados (vindos do servidor simulado acima):
+            text = localStorage.getItem("testJSON");
+            obj = JSON.parse(text);
+            document.getElementById("demo2").innerHTML = obj.city;
+        </script>
+    </section>
+
+</body>
+
+</html>

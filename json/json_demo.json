@@ -1,0 +1,38 @@
+﻿[
+    {
+        "name": "Mario",
+        "age": 30,
+        "pets": [
+            {
+                "animal": "passaros",
+                "name": "Prada"
+            },
+            {
+                "animal": "cachorro",
+                "name": "Brenda"
+            },
+            {
+                "animal": "gato",
+                "name": "Bixano"
+            }
+        ]
+    },
+    {
+        "name": "Luide",
+        "age": 22,
+        "pets": [
+            {
+                "animal": "Peixe",
+                "name": "Dourado"
+            },
+            {
+                "animal": "Tartaruga",
+                "name": "Rafael"
+            },
+            {
+                "animal": "Coelho",
+                "name": "Pernalonga"
+            }
+        ]
+    }
+]
