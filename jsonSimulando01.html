@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS JSON tutorial practicing</title>
+</head>
+
+<body>
+    <h1>JSON - Simulando Servidor (cache)</h1>
+
+    <section>
+        <strong>1) Armazena dados em cache (simulando um servidor)</strong>
+        <p>1 - Cria os objetos pegando os valores dos formulários</p>
+        <p>2 - Cria uma variável, pega os objetos atraves do "JSON.stringify()" dentro das aspas insere nome dado aos objetos</p>
+        <p>3 - Enviar o json com "localStorage.setItem() dentro das aspas insere um nome qualquer para ser enviado mais a variável que foi criada" </p>
+        <p>4 - Mostra as informações armazenadas na página jsonSimulando02.html</p>
+        <form name="form01">
+            <input type="text" name="fname" required="" placeholder="nome" />
+            <br />
+            <input type="text" name="lname" required="" placeholder="sobrenome" />
+            <br />
+            <input type="number" name="age" required="" placeholder="idade" pattern="[0-9]*" inputmode="numeric" />
+            <br /><br/>
+            <input type="button" name="submit" value="Gravar em cache" onclick="objects()">
+        </form>
+
+        <script>
+            function objects() {
+                var perfil = {
+                    nome: document.form01.fname.value,
+                    sobrenome: document.form01.lname.value,
+                    idade: document.form01.age.value
+                }
+                var myJSON = JSON.stringify(perfil);
+                localStorage.setItem("testJSON", myJSON);
+            };
+        </script>
+    </section>
+
+    <section>
+        <strong>2) Mesmo caso do primeiro acima.</strong>
+        <p>Neste caso não tem interação de formulário os objetos já estão armazenados só para mostrar na página jsonSimulando02.html</p>
+        
+        <script>
+            myObj = {
+                "nome": "John",
+                "idade": 30,
+                "carros": ["Ford", " BMW", " Fiat"]
+            };
+            
+            var myJSON02 = JSON.stringify(myObj);
+            localStorage.setItem("testJSON02", myJSON02);
+        </script>
+    </section>
+
+</body>
+
+</html>

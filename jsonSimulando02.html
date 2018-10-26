@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <title>JS JSON tutorial practicing</title>
+</head>
+
+<body>
+    <h1>JSON - Mostrar do Servidor simulando (cache) - Recarregando a página</h1>
+
+    <section>
+        <strong>1) Recupere os dados em cache (vindos do servidor simulado).</strong>
+        <p>1 - Cria variável para a lista de objetos do html</p>
+        <p>2 - Cria variável para "localStorage.getItem()" dentro das aspas inserir o nome que foi de envio pelo "setItem"</p>
+        <p>3 - Cria variável para "JSON.parse(this.responseText)" pegando o que foi recuperado, esse comando é json padrão nativo do javascript </p>
+        <p>4 - Mostra para cada lista de nomes do html os objetos json referentes com uso de arrays</p>
+        <p>5 - Esconde o botão</p>
+        <br /><br />
+        <input type="button" name="submit" value="Exibir dados em cache" onclick="objects()">
+        <br />
+        <ul>
+            <li class="info">Nomes: </li>
+            <li class="info">Sobrenome: </li>
+            <li class="info">idade: </li>
+        </ul>
+
+        <script>
+            function objects() {
+                var listas = $(".info");
+
+                var text = localStorage.getItem("testJSON");
+                var obj = JSON.parse(text);
+
+                listas[0].append(obj.nome);
+                listas[1].append(obj.sobrenome);
+                listas[2].append(obj.idade);
+
+                $("input").hide();
+            };
+        </script>
+    </section>
+
+    <section>
+        <strong>2) Armazena (simula o servidor) e recupere dados (vindos do servidor simulado).</strong>
+        <p>Tem que exibir... nome: John, idade: 30, Carros: Ford, BMW, Fiat</p>
+        <i id="demo2"></i>
+
+        <script>
+            var texto = localStorage.getItem("testJSON02");
+            var meuobj = JSON.parse(texto);
+            document.getElementById("demo2").innerHTML = meuobj.nome + "<br/>" +
+                meuobj.idade + "<br/>" +
+                meuobj.carros;
+        </script>
+    </section>
+
+</body>
+
+</html>
