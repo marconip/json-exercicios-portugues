@@ -52,9 +52,11 @@
         <script>
             var texto = localStorage.getItem("testJSON02");
             var meuobj = JSON.parse(texto);
-            document.getElementById("demo2").innerHTML = meuobj.nome + "<br/>" +
+            document.getElementById("demo2").innerHTML = 
+                meuobj.nome + "<br/>" +
                 meuobj.idade + "<br/>" +
-                meuobj.carros;
+                meuobj.carros + "<br/>" +
+                "<img src=image/" + meuobj.image + " />";
         </script>
     </section>
 

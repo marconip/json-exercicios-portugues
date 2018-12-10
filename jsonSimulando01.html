@@ -38,9 +38,9 @@
                 localStorage.setItem("testJSON", myJSON);
 
                 if(perfil.nome == "" || perfil.sobrenome == "" || perfil.idade == ""){
-                    alert("preencha os 3 campos");
+                    alert("Preencha os 3 campos");
                 } else {
-                    alert("ARMAZENADO \nNa URL mude o numero 1 para 2 e entra!");
+                    alert("ARMAZENADO \nNa URL mude o numero 01 para 02 e entra!");
                 };
             };
         </script>
@@ -54,7 +54,8 @@
             myObj = {
                 "nome": "John",
                 "idade": 30,
-                "carros": ["Ford", " BMW", " Fiat"]
+                "carros": ["Ford", " BMW", " Fiat"],
+                "image": "green-hulk.gif"
             };
             
             var myJSON02 = JSON.stringify(myObj);
