@@ -18,11 +18,11 @@
         <p>3 - Enviar o json com "localStorage.setItem() dentro das aspas insere um nome qualquer para ser enviado mais a variável que foi criada" </p>
         <p>4 - Mostra as informações armazenadas na página jsonSimulando02.html</p>
         <form name="form01">
-            <input type="text" name="fname" required="" placeholder="nome" />
+            <input type="text" name="fname" required="" placeholder="nome" class="campos1"/>
             <br />
-            <input type="text" name="lname" required="" placeholder="sobrenome" />
+            <input type="text" name="lname" required="" placeholder="sobrenome" class="campos" />
             <br />
-            <input type="number" name="age" required="" placeholder="idade" pattern="[0-9]*" inputmode="numeric" />
+            <input type="number" name="age" required="" placeholder="idade" pattern="[0-9]*" inputmode="numeric" class="campos"/>
             <br /><br/>
             <input type="button" name="submit" value="Gravar em cache" onclick="objects()">
         </form>
@@ -36,6 +36,12 @@
                 }
                 var myJSON = JSON.stringify(perfil);
                 localStorage.setItem("testJSON", myJSON);
+
+                if(perfil.nome == "" || perfil.sobrenome == "" || perfil.idade == ""){
+                    alert("preencha os 3 campos");
+                } else {
+                    alert("ARMAZENADO \nNa URL mude o numero 1 para 2 e entra!");
+                };
             };
         </script>
     </section>
