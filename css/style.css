@@ -1,44 +1,233 @@
 body {
-  background: #ccc;
-  padding: 30px;
+    background: #ccc;
+    padding: 30px;
 }
 
 h1,
-h2 {
-  color: #999;
-  margin: 10px 0;
-}
-
+h2,
 h3 {
-  margin: 10px 0;
-}
-
-p {
-  margin: 5px 0;
+    color: #888;
 }
 
 section {
-  padding: 15px;
-  margin-bottom: 30px;
-  border: 1px solid #999;
-}
-
-img {
-  width: 60px;
+    border: 1px solid #999;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 b,
 i {
-  color: darkred;
+    color: darkred;
 }
 
-li {
-  cursor: pointer;
-  display: table;
-  font-weight: bold;
-  padding: 0 4px;
+p {
+    color: #555;
 }
 
-li:hover {
-  background: #fff;
+label:hover, 
+ul li:hover {
+    cursor: pointer;
+    background: #f9f9f9;
 }
+
+.error {
+    outline: 2px solid red;
+}
+
+/*animations*/
+
+#container {
+    width: 400px;
+    height: 225px;
+    background: url('../image/airport.png');
+    position: relative;
+}
+
+#box {
+    width: 80px;
+    height: 80px;
+    background: url('../image/plane.png');
+    position: absolute;
+}
+
+.pista {
+    left: 310px !important;
+    transition: 3s;
+}
+
+/*DOM events*/
+
+#boxdiv {
+    width: 80px;
+    height: 80px;
+    background: #999;
+    border: 4px solid yellowgreen;
+}
+
+/*Event Propagation*/
+
+.div {
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    cursor: pointer;
+}
+
+.div p {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+}
+
+.div span {
+    padding: 10px;
+    background: #fff;
+    color: #333;
+}
+
+/*Image Slider*/
+
+#imgslider {
+    display: table;
+}
+
+#imgslider button {
+    margin-top: 30px;
+    float: left;
+    padding: 15px;
+}
+
+#imgslider img {
+    float: left;
+    margin: 0 20px;
+}
+
+#imgslider img,
+.display-container img {
+    width: 200px;
+}
+
+/* MENU Add Active Class to Current Element */
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.active, .actives, 
+.ativo {
+    background-color: #000;
+    color: white;
+}
+
+.active01 {
+    background: red;
+    color: darkred;
+}
+
+.active02 {
+    background: green;
+    color: darkgreen;
+}
+
+.active03 {
+    background: blue;
+    color: darkblue;
+}
+
+/**** img-zoom-galeria ****/
+
+.myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 200px;
+}
+
+.myImg:hover {
+    opacity: 0.7;
+}
+
+.modal {
+    /* The Modal (background) */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    /* Modal Content (image) */
+    margin: auto;
+    display: block;
+    width: 96%;
+    max-width: 768px;
+}
+
+#caption {
+    /* Caption of Modal Image */
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #f1f1f1;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content,
+#caption {
+    /* Add Animation */
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.close {
+    position: absolute;
+    top: 8px;
+    right: 35px;
+    color: #f00;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/**** img-zoom-galeria FIM ****/

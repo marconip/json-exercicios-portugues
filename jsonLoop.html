@@ -9,80 +9,103 @@
 </head>
 
 <body>
-    <h1>JSON - Loops</h1>
+    <h1>JSON - Loops (pegar as arrays de um objeto)</h1>
 
     <section>
-        <strong>1) Loop - for-in loop</strong>
-        <p>Primeiro cria os objetos e as arrays...  nome: John, idade: 30, carros: Ford, BMW, Fiat </p>
-        <p>Dentro do "for" usar apenas as variaveis, a primeira pega a última string e segunda pega o valor</p>
-        <i id="demo"></i>
+        <strong>Loop - com simples for</strong>
+        Cria variável objetos e as arrays... nome: John, idade: 30, carros: Ford, BMW, Fiat<br />
+        Cria o "for" com o objeto escolhido e length. Declara com repeate e escreve (+=)<br /><br />
+        <i id="demo1a">
+            <b>Mostra todas as arrays somente do objeto em 'carros':</b><br />
+        </i><br /><br />
+        <b>Mostra apenas array 2 de carros:</b><br />
+        <i id="demo1b"></i>
 
         <script>
-            var jsons, meuloop;
-            jsons = {
+            var objetos = {
                 "nome": "John",
                 "idade": "30",
-                "Carros": ["Ford", " BMW", " Fiat"]
-            };
-            for (meuloop in jsons){
-                document.getElementById("demo").innerHTML = meuloop + ": " + jsons.Carros;
-            };
-        </script>
-    </section>
-
-
-    <section>
-        <strong>2) Loop - simples for</strong>
-        <p>Pegar todas as arrays somente do objeto 'cars'</p>
-        <p>Primeiro cria os objetos e as arrays...  nome: John, idade: 30, carros: Ford, BMW, Fiat </p>
-        <i id="demo2">
-            <h3>CARROS:</h3>
-        </i>
-
-        <script>
-            objetos = {
-                "nome": "John",
-                "idade": "30",
-                "carros": ["Ford", " BMW", " Fiat"]
-            };
-            for (i = 0; i < objetos.carros.length; i++){
-                document.getElementById("demo2").innerHTML += objetos.carros[i] + "<br/>";
+                "carros": ["Ford", "BMW", "Fiat"]
+            }
+            for (i = 0; i < objetos.carros.length; i++) {
+                document.getElementById("demo1a").innerHTML += objetos.carros[i] + "<br/>";
+                document.getElementById("demo1b").innerHTML = objetos.carros[1];
             }
         </script>
     </section>
 
 
     <section>
-        <strong>3) Loop - Acessa todas as array e dentro das array.</strong>
-        <p>Retorna os nomes das categorias de carros 'cars' e suas respectivas arrays 'models' um abaixo do outro</p>
-        <p>Primeiro cria os objetos e as arrays...  nome: John, idade: 30, carros</p>
-        <p>name: Ford, models: Fiesta, Focus, Mustang</p>
-        <p>name: BMW, models: 320, X3, X5</p>
-        <p>name: Fiat, models: 500, Panda</p>
-        <p>Dentro do "for" usar apenas as variaveis, apenas com string e o valor para o 1º objeto</p>
-        <p>Na primeira variável escreve a tag h3 mais nome das empresas de carro</p>
-        <p>Dentro do "for" usar apenas as variaveis, apenas com string e o valor para o 2º objeto 'cars'</p>
-        <p>Na segunda variável escreve os nomes dos carros </p>
+        <strong>Loop - for in jsons </strong>
+        Primeiro cria os nomes das variáveis, uma para os objetos que serão as arrays... imagem: green-hulk.gif, nome:
+        Hulk, idade: 22 anos, carros:
+        Caminhão, Pickup, Carro<br />
+        Dentro do "for" usar apenas as variaveis (x in y), a primeira pega a última string e segunda pega os
+        valores<br /><br />
+        <i id="demo2">MOSTRAR AQUI: imagem, nome, idade, nomes dos carros e array 2 de carros. <br />
+            Depois esconde esse botão!</i>
+
+        <button type="button" onclick="funcMostra()">Mostrar</button>
+
+        <script>
+            function funcMostra() {
+                var meusobjetos, ultimoObjeto;
+                meusObjetos = {
+                    "imagem": "green-hulk.gif",
+                    "nome": "Hulk",
+                    "idade": "22 anos",
+                    "carros": [" Caminhão", " Pickup", " Carro"]
+                }
+                for (ultimoObjeto in meusObjetos) {
+                    document.getElementById("demo2").innerHTML =
+                        "<img src='image/" + meusObjetos.imagem + "'> <br/>" +
+                        meusObjetos.nome + "<br/>" +
+                        meusObjetos.idade + "<br/>" +
+                        meusObjetos.carros + "<br/><br/>" +
+                        meusObjetos.carros[1];
+                }
+                document.querySelector("button").style.display = "none";
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <strong>Loop - Acessa todas as array e arays dentro de array.</strong>
+        cria três variáveis uma para objeto, uma para cada array e uma para declarar. As arrays são...<br />
+        nome: John, idade: 33 anos, carros<br />
+        empresa: Ford, modelos: Fiesta, Focus, Mustang<br />
+        empresa: BMW, modelos: 320, X3, X5<br />
+        empresa: Fiat, modelos: Uno, Siena<br />
+        Dentro do "for" usar apenas as variáveis (x in y.Carros), a primeira pega o último objeto e segunda pega todas
+        as 'empresa' dentro da tag<br />
+        Cria outro "for" entro do primeiro "for" usar apenas as variáveis (x in y.modelos) e o valor para o 2º objeto
+        'Carros' que é 'modelos'<br />
+        Na segunda variável escreve os modelos dos carros<br /><br />
+
+        <b>Declarar os nomes das 'empresas' em negrito e os modelos de cada uma abaixo da mesma. <br/>
+            Declara 'empresa' e modelo da array 1</b><br />
         <i id="demo3"></i>
 
         <script>
-            var meuObj, i01, i02, escreve = "";
-            meuObj = {
-                "Nome": "John",
-                "Idade": 30,
-                "Carros": [
-                    {"nome": "Ford", "models": ["Fiesta", "Focus", "Mustang"]},
-                    {"nome": "BMW",  "models": ["320", "X3", "X5"]},
-                    {"nome": "Fiat", "models": ["500", "Panda"]}
+            var objeto, array01, array02, declara = "", declara2 = "";
+            objeto = {
+                "nome": "John",
+                "idade": "33 anos",
+                "carros": [
+                    { "empresa": "Ford", "modelos": ["Fiesta ", "Focus ", "Mustang"] },
+                    { "empresa": "BMW", "modelos": ["320 ", "X3 ", "X5"] },
+                    { "empresa": "Fiat", "modelos": ["Uno ", "Siena"] }
                 ]
             }
-            for(i01 in meuObj.Carros){
-                escreve += "<h3>" + meuObj.Carros[i01].nome + "</h3>";
-                    for(i02 in meuObj.Carros[i01].models){
-                        escreve += meuObj.Carros[i01].models[i02] + "<br/>";
+            for (array01 in objeto.carros) {
+                declara += "<br/><b>" + objeto.carros[array01].empresa + "</b> <br/>";
+                for (array02 in objeto.carros[array01].modelos) {
+                    declara += objeto.carros[array01].modelos[array02] + "<br/>";
                 }
+                declara2 = objeto.carros[1].empresa + " " + objeto.carros[1].modelos[1];
             }
-            document.getElementById("demo3").innerHTML = escreve;
+            document.getElementById("demo3").innerHTML = declara + "<br/>" + declara2;
         </script>
     </section>
 
