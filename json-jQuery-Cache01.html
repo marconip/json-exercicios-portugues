@@ -9,21 +9,26 @@
 </head>
 
 <body>
-    <h1>JSON - Simulando Servidor (cache)</h1>
+    <h1>JSON - Servidor simulando (cache) - com jQuery e javascript</h1>
+    <h2>Página 01</h2>
 
     <section>
-        <strong>1) Armazena dados em cache (simulando um servidor)</strong>
-        <p>1 - Cria os objetos pegando os valores dos formulários</p>
-        <p>2 - Cria uma variável, pega os objetos atraves do "JSON.stringify()" dentro das aspas insere nome dado aos objetos</p>
-        <p>3 - Enviar o json com "localStorage.setItem() dentro das aspas insere um nome qualquer para ser enviado mais a variável que foi criada" </p>
-        <p>4 - Mostra as informações armazenadas na página jsonSimulando02.html</p>
+        <strong>1) Armazena dados em cache (simulando um servidor)</strong><br/><br/>
+        1 - Cria function e uma variável objeto pegando os valores dos formulários<br/>
+        2 - Cria uma variável, pega os objetos atraves do "JSON.stringify()" dentro dos parêntese insere nome dado aos
+        objetos<br/>
+        3 - Enviar o json com "localStorage.setItem() dentro dos parêntese e aspas insere um nome qualquer para ser
+        enviado, mais a variável que foi criada"<br/>
+        4 - Cria um "if" e "else" para responder aos campos se estão preenchidos ou não.<br/>
+        5 - Mostra as informações armazenadas na página: json-jQuery-Cache02.html<br/><br/>
         <form name="form01">
-            <input type="text" name="fname" required="" placeholder="nome" class="campos1"/>
+            <input type="text" name="fname" required="" placeholder="nome" class="campos1" />
             <br />
             <input type="text" name="lname" required="" placeholder="sobrenome" class="campos" />
             <br />
-            <input type="number" name="age" required="" placeholder="idade" pattern="[0-9]*" inputmode="numeric" class="campos"/>
-            <br /><br/>
+            <input type="number" name="age" required="" placeholder="idade" pattern="[0-9]*" inputmode="numeric"
+                class="campos" />
+            <br /><br />
             <input type="button" name="submit" value="Gravar em cache" onclick="objects()">
         </form>
 
@@ -37,7 +42,7 @@
                 var myJSON = JSON.stringify(perfil);
                 localStorage.setItem("testJSON", myJSON);
 
-                if(perfil.nome == "" || perfil.sobrenome == "" || perfil.idade == ""){
+                if (perfil.nome == "" || perfil.sobrenome == "" || perfil.idade == "") {
                     alert("Preencha os 3 campos");
                 } else {
                     alert("ARMAZENADO \nNa URL mude o numero 01 para 02 e entra!");
@@ -47,9 +52,12 @@
     </section>
 
     <section>
-        <strong>2) Mesmo caso do primeiro acima.</strong>
-        <p>Neste caso não tem interação de formulário os objetos já estão armazenados só para mostrar na página jsonSimulando02.html</p>
-        
+        <strong>2) Mesmo caso do primeiro acima.</strong><br/><br/>
+        Neste caso não tem interação de formulário os objetos já estão armazenados só para mostrar tudo na página:
+        json-jQuery-Cache02.html<br/>
+
+        1 - Cria uma variável objeto pegando os valores: nome: John, idade: 30, carros: [Ford,  BMW,  Fiat], image: green-hulk.gif
+
         <script>
             myObj = {
                 "nome": "John",
@@ -57,7 +65,7 @@
                 "carros": ["Ford", " BMW", " Fiat"],
                 "image": "green-hulk.gif"
             };
-            
+
             var myJSON02 = JSON.stringify(myObj);
             localStorage.setItem("testJSON02", myJSON02);
         </script>

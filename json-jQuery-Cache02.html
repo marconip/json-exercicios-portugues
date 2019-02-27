@@ -5,23 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel='stylesheet' href='css/style.css' type='text/css' />
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>JS JSON tutorial practicing</title>
 </head>
 
 <body>
-    <h1>JSON - Mostrar do Servidor simulando (cache) - Recarregando a página</h1>
+    <h1>JSON - Servidor simulando (cache) - com jQuery e javascript</h1>
+    <h2>Página 02</h2>
 
     <section>
-        <strong>1) Recupere os dados em cache (vindos do servidor simulado).</strong>
-        <p>1 - Cria variável para a lista de objetos do html</p>
-        <p>2 - Cria variável para "localStorage.getItem()" dentro das aspas inserir o nome que foi de envio pelo "setItem"</p>
-        <p>3 - Cria variável para "JSON.parse(this.responseText)" pegando o que foi recuperado, esse comando é json padrão nativo do javascript </p>
-        <p>4 - Mostra para cada lista de nomes do html os objetos json referentes com uso de arrays</p>
-        <p>5 - Esconde o botão</p>
+        <strong>1) Recupere os dados em cache (vindos da página: json-jQuery-Cache01.html).</strong><br/><br/>
+        1 - Cria function e variável para pegar lista de objetos do html<br/>
+        2 - Cria variável para "localStorage.getItem()" dentro das aspas inserir o nome que foi de envio pelo "setItem"<br/>
+        3 - Cria variável para "JSON.parse()" dentro dos parêntese insere nome dado a variável anterior<br/>
+        4 - Mostra para cada lista de nomes do html os objetos json referentes com uso de cada array<br/>
+        5 - Esconde o botão<br/>
         <br />
         <input type="button" name="submit" value="Exibir dados em cache" onclick="objects()">
-        
+
         <ul>
             <li class="info">Nomes: </li>
             <li class="info">Sobrenome: </li>
@@ -45,14 +46,15 @@
     </section>
 
     <section>
-        <strong>2) Armazena (simula o servidor) e recupere dados (vindos do servidor simulado).</strong>
-        <p>Tem que exibir... nome: John, idade: 30, Carros: Ford, BMW, Fiat</p>
+        <strong>2) Recupere os dados em cache (vindos da página: json-jQuery-Cache01.html)</strong><br/>
+        Tem que exibir... nome: John, idade: 30, Carros: Ford, BMW, Fiat e imagem do Hulk<br/>
+        <br/>
         <i id="demo2"></i>
 
         <script>
             var texto = localStorage.getItem("testJSON02");
             var meuobj = JSON.parse(texto);
-            document.getElementById("demo2").innerHTML = 
+            document.getElementById("demo2").innerHTML =
                 meuobj.nome + "<br/>" +
                 meuobj.idade + "<br/>" +
                 meuobj.carros + "<br/>" +
