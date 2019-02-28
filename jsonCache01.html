@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS JSON tutorial practicing</title>
+</head>
+
+<body>
+    <h1>JSON - Simulando Servidor (cache) - com jQuery e javascript</h1>
+    <h2>Página 01</h2>
+
+    <section>
+        <strong>1) Armazena dados em cache (simulando um servidor)</strong><br /><br />
+        1 - Cria function e uma variável objeto pegando os valores dos formulários<br />
+        2 - Cria uma variável, pega os objetos atraves do "JSON.stringify()" dentro dos parêntese insere nome dado aos
+        objetos<br />
+        3 - Enviar o json com "localStorage.setItem() dentro dos parêntese e aspas insere um nome qualquer para ser
+        enviado, mais a variável que foi criada"<br />
+        4 - Cria um "if" e "else" para um alerta responder aos campos se estão preenchidos ou não.<br />
+        5 - Mostra as informações armazenadas na página: json-jQuery-Cache02.html<br /><br />
+        <form name="form01">
+            <input type="text" name="fname" placeholder="nome" class="campos1" />
+            <br />
+            <input type="text" name="lname" placeholder="sobrenome" class="campos" />
+            <br />
+            <input type="number" name="age" placeholder="idade" pattern="[0-9]*" inputmode="numeric" class="campos" />
+            <br /><br />
+            <input type="button" name="submit" value="Gravar em cache" onclick="objects()">
+        </form>
+
+        <script>
+            function objects() {
+                var declara = "";
+                var objetos = {
+                    "nome": document.form01.fname.value,
+                    "sobrenome": document.form01.lname.value,
+                    "idade": document.form01.age.value
+                }
+                var meuJson = JSON.stringify(objetos);
+                localStorage.setItem("meusDados", meuJson);
+
+                /* alert(objetos.nome + objetos.sobrenome + objetos.idade); */
+
+                if(objetos.nome == "" || objetos.sobrenome == "" || objetos.idade == ""){
+                    alert("É preciso preencher todos os campos");
+                }else{
+                    alert("OK \nAgora troca na URL 01 para 02 e Enter");
+                }
+            }
+        </script>
+    </section>
+
+    <section>
+        <strong>2) Mesmo caso do primeiro acima.</strong><br /><br />
+        Neste caso não tem interação de formulário os objetos já estão armazenados só para mostrar tudo na página:
+        json-jQuery-Cache02.html<br />
+
+        1 - Cria uma variável objeto pegando os valores: nome: John, idade: 30, carros: [Ford, BMW, Fiat], image:
+        green-hulk.gif
+
+        <script>
+             meusObjetos = {
+                "nome": "John", 
+                "idade": 30, 
+                "carros": ["Ford", " BMW", " Fiat"],
+                "imagem": "green-hulk.gif"
+            };
+            var jsonMeu = JSON.stringify(meusObjetos);
+            localStorage.setItem("meusJson", jsonMeu);
+        </script>
+    </section>
+
+</body>
+
+</html>

@@ -49,20 +49,20 @@
 
         <script>
             function funcMostra() {
-                var objeto, osObjetos;
-                objeto = {
+                var meusobjetos, ultimoObjeto;
+                meusObjetos = {
                     "imagem": "green-hulk.gif",
                     "nome": "Hulk",
                     "idade": "22 anos",
-                    "carros": ["Caminhão", " Pickup", " Carro"]
+                    "carros": [" Caminhão", " Pickup", " Carro"]
                 }
-                for (osObjetos in objeto) {
+                for (ultimoObjeto in meusObjetos) {
                     document.getElementById("demo2").innerHTML =
-                        "<img src='image/" + objeto.imagem + "'><br/>" +
-                        objeto.nome + "<br/>" +
-                        objeto.idade + "<br/>" +
-                        objeto[osObjetos] + "<br/><br/>" +
-                        objeto[osObjetos][1];
+                        "<img src='image/" + meusObjetos.imagem + "'> <br/>" +
+                        meusObjetos.nome + "<br/>" +
+                        meusObjetos.idade + "<br/>" +
+                        meusObjetos.carros + "<br/><br/>" +
+                        meusObjetos.carros[1];
                 }
                 document.querySelector("button").style.display = "none";
             }
@@ -83,29 +83,29 @@
         'Carros' que é 'modelos'<br />
         Na segunda variável escreve os modelos dos carros<br /><br />
 
-        <b>Declarar os nomes das 'empresas' em negrito e os modelos de cada uma abaixo da mesma. <br />
+        <b>Declarar os nomes das 'empresas' em negrito e os modelos de cada uma abaixo da mesma. <br/>
             Declara 'empresa' e modelo da array 1</b><br />
         <i id="demo3"></i>
 
         <script>
-            var meuObjeto, array1, array2, declara = "", declara2 = "";
-            meuObjeto = {
+            var objeto, array01, array02, declara = "", declara2 = "";
+            objeto = {
                 "nome": "John",
                 "idade": "33 anos",
                 "carros": [
-                    { "empresa": "Ford", "modelos": ["Fiesta", "Focus", "Mustang"] },
-                    { "empresa": "BMW", "modelos": ["320", "X3", "X5"] },
-                    { "empresa": "Fiat", "modelos": ["Uno", "Siena"] }
+                    { "empresa": "Ford", "modelos": ["Fiesta ", "Focus ", "Mustang"] },
+                    { "empresa": "BMW", "modelos": ["320 ", "X3 ", "X5"] },
+                    { "empresa": "Fiat", "modelos": ["Uno ", "Siena"] }
                 ]
             }
-            for (array1 in meuObjeto.carros) {
-                declara += "<br/><b>" + meuObjeto.carros[array1].empresa + "</b><br/>";
-                for (array2 in meuObjeto.carros[array1].modelos) {
-                    declara += meuObjeto.carros[array1].modelos[array2] + "<br/>";
+            for (array01 in objeto.carros) {
+                declara += "<br/><b>" + objeto.carros[array01].empresa + "</b> <br/>";
+                for (array02 in objeto.carros[array01].modelos) {
+                    declara += objeto.carros[array01].modelos[array02] + "<br/>";
                 }
-                declara2 = "<br/><b>" + meuObjeto.carros[1].empresa + " " + meuObjeto.carros[1].modelos[1] + "</b>";
+                declara2 = objeto.carros[1].empresa + " " + objeto.carros[1].modelos[1];
             }
-            document.getElementById("demo3").innerHTML = declara + declara2;
+            document.getElementById("demo3").innerHTML = declara + "<br/>" + declara2;
         </script>
     </section>
 
