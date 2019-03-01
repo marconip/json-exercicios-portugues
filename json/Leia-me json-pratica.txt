@@ -1,0 +1,35 @@
+Pratique também como escrever um json externo.
+apague todo arquivo json e reescreva com as informações abaixo:
+
+PESSOA 1
+---------------
+name: Mario
+age: 30
+pets:
+  animal: passaro
+  name: Prada
+
+  animal: cachorro
+  name: Brenda
+  
+  animal: gato
+  name: Bixano
+
+image: grey-hulk.gif
+
+
+PESSOA 2
+--------------
+name: Luide
+age: 22
+pets:
+  animal: Peixe
+  name: Dourado
+
+  animal: Tartaruga
+  name: Rafael
+  
+  animal: Coelho
+  name: Pernalonga
+
+image: green-hulk.gif
