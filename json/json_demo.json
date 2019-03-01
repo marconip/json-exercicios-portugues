@@ -4,7 +4,7 @@
         "age": 30,
         "pets": [
             {
-                "animal": "passaros",
+                "animal": "passaro",
                 "name": "Prada"
             },
             {
@@ -15,7 +15,8 @@
                 "animal": "gato",
                 "name": "Bixano"
             }
-        ]
+        ],
+        "image": "grey-hulk.gif"
     },
     {
         "name": "Luide",
@@ -33,6 +34,7 @@
                 "animal": "Coelho",
                 "name": "Pernalonga"
             }
-        ]
+        ],
+        "image": "red-hulk.gif"
     }
 ]

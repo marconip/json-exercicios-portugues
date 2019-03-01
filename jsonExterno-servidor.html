@@ -5,41 +5,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel='stylesheet' href='css/style.css' type='text/css' />
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>JS JSON tutorial practicing</title>
 </head>
 
 <body>
-    <h1>JSON - Só trabalha com uso de servidor</h1>
+    <h1>JSON - Com uso do servidor</h1>
+    <h2>Dados importandos de: json/json_demo.json</h2>
 
     <section>
-        <strong>1) JSON - com o uso "if (this.readyState == 4 && this.status == 200)" .</strong>
-        <p>jQuery comentado faz o mesmo em pouca linhas, usando: "getJSON()" mais o caminho do arquivo.</p>
-        <p>1 - Cria uma variável com "XMLHttpRequest()" que informa que vai chamar o link de algum servidor</p>
-        <p>2 - Com a variável que foi criada, adicione o comando ".open("GET","linkDoJsonAqui", true), buscara o arquivo .json</p>
-        <p>3 - Com a variável que foi criada, adicione o comando ".send" informar que quer exibir o link do arquivo que foi
-            buscado com o ".open"</p>
-        <p>4 - Com a variável que foi criada, adicione o comando ".onreadystatechange" que recebe uma função</p>
-        <p>5 - Dentro da função cria um "if" com (this.readyState == 4 && this.status == 200)</p>
-        <p>6 - Dentro do "if" cria uma variável com "JSON.parse(this.responseText)" que é um json padrão nativo do javascript
-        </p>
-        <p>7 - Exibir no html todas as arrays da primeira pessoa do arquivo .json externo</p>
+        <strong>JSON - com o uso "if (this.readyState == 4 && this.status == 200)" .</strong>
+        <br />1 - Cria uma variável com "new XMLHttpRequest()" isso informa que vai chamar o link de algum servidor
+        <br />2 - Com a variável que foi criada, adicione o comando ".open("GET","escreve-caminho-do-json-aqui", true),
+        isso buscara o arquivo .json
+        <br />3 - Com a mesma variável criada, adicione o comando ".send()" isso informar que quer exibir o link do
+        arquivo que foi buscado anteriormente com o ".open"
+        <br />4 - Com a mesma variável criada, adicione o comando ".onreadystatechange" e em seguida crie uma função
+        <br />5 - Dentro da função cria um "if" com (this.readyState == 4 && this.status == 200) isso é padrão do
+        javascript
+        <br />6 - Dentro do "if" cria uma variável com "JSON.parse(this.responseText)" isso é um comando json padrão
+        nativo do javascript
+        <br />7 - <b>Exibir no html todas as arrays da primeira pessoa do arquivo: "json_demo.json"</b>
+        <br /><br />
         <i id="demo"></i>
 
         <script>
-            var pegaxmlhttp = new XMLHttpRequest();
-            pegaxmlhttp.open("GET", "json/json_demo.json", true);
-            pegaxmlhttp.send();
-            pegaxmlhttp.onreadystatechange = function () {
+            var puxar = new XMLHttpRequest();
+            puxar.open("GET", "json/json_demo.json", true);
+            puxar.send();
+            puxar.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    var meujson = JSON.parse(this.responseText);
-
-                    var mostra = document.getElementById("demo");
-                    mostra.innerHTML = meujson[0].name + "<br/>";
-                    mostra.innerHTML += meujson[0].age + "<br/>";
-                    mostra.innerHTML += meujson[0].pets[0].animal + ": " + meujson[0].pets[0].name + "<br/>";
-                    mostra.innerHTML += meujson[0].pets[1].animal + ": " + meujson[0].pets[1].name + "<br/>";
-                    mostra.innerHTML += meujson[0].pets[2].animal + ": " + meujson[0].pets[2].name;
+                    var exibe = JSON.parse(this.responseText);
+                    document.getElementById("demo").innerHTML =
+                        "Nome: " + exibe[0].name + "<br/>" +
+                        "Idade: " + exibe[0].age + " anos" + "<br/>" +
+                        "<br/>Animais:<br/>" + exibe[0].pets[0].animal + " chamado: " + exibe[0].pets[0].name + "<br/>"
+                        + exibe[0].pets[1].animal + " chamado: " + exibe[0].pets[1].name + "<br/>"
+                        + exibe[0].pets[2].animal + " chamado: " + exibe[0].pets[2].name + "<br/>" +
+                        "<img src='image/" + exibe[0].image + "'>";
                 }
             };
         </script>
@@ -47,54 +50,59 @@
 
 
     <section>
-        <strong>2) JSON - sem o "if"</strong>
-        <p>1 - Cria uma variável com "XMLHttpRequest()" que informa que vai chamar o link de algum servidor</p>
-        <p>2 - Com a variável que foi criada, adicione o comando ".open("GET","linkDoJsonAqui", true), buscara o arquivo .json</p>
-        <p>3 - Com a variável que foi criada, adicione o comando ".send" informar que quer exibir o link do arquivo que foi
-            buscado com o ".open"</p>
-        <p>4 - Com a variável que foi criada, adicione o comando ".onload" que recebe uma função</p>
-        <p>5 - Dentro da função cria uma variável com "JSON.parse(this.responseText)" que é um json padrão nativo do javascript
-        </p>
-        <p>6 - Exibir no html todas as arrays da seguna pessoa do arquivo .json externo</p>
+        <strong>JSON - sem o "if"</strong>
+        <br />1 - Cria uma variável com "new XMLHttpRequest()" isso informa que vai chamar o link de algum servidor
+        <br />2 - Com a variável que foi criada, adicione o comando ".open("GET","escreve-caminho-do-json-aqui", true),
+        isso buscara o arquivo .json
+        <br />3 - Com a mesma variável criada, adicione o comando ".send()" isso informar que quer exibir o link do
+        arquivo que foi buscado com o ".open"
+        <br />4 - Com a mesma variável criada, adicione o comando ".onload" e em seguida crie uma função
+        <br />5 - Dentro da função cria uma variável com "JSON.parse(this.responseText)" isso é um comando json padrão
+        nativo do javascript
+        <br /><b>6 - Exibir no html todas as arrays da segunda pessoa do arquivo: "json_demo.json"</b>
+        <br /><br />
         <i id="demo2"></i>
 
         <script>
-            var requer = new XMLHttpRequest();
-            requer.open("GET", "json/json_demo.json", true);
-            requer.send();
-            requer.onload = function () {
-                var meusjson = JSON.parse(this.responseText);
+            var solicitar = new XMLHttpRequest();
+            solicitar.open("GET", "json/json_demo.json", true);
+            solicitar.send();
+            solicitar.onload = function () {
+                mostra = JSON.parse(this.responseText);
 
-                var exibir = document.getElementById("demo2");
-                exibir.innerHTML = meusjson[1].name + "<br/>";
-                exibir.innerHTML += meusjson[1].age + "<br/>";
-                exibir.innerHTML += meusjson[1].pets[0].animal + ": " + meusjson[1].pets[0].name + "<br/>";
-                exibir.innerHTML += meusjson[1].pets[1].animal + ": " + meusjson[1].pets[1].name + "<br/>";
-                exibir.innerHTML += meusjson[1].pets[2].animal + ": " + meusjson[1].pets[2].name + "<br/>";
-            }
+                document.getElementById("demo2").innerHTML =
+                    mostra[1].name + ", " + mostra[1].age + " anos <br/>" +
+                    mostra[1].pets[0].animal + " chamado: " + mostra[1].pets[0].name + "<br/>" +
+                    mostra[1].pets[1].animal + " chamado: " + mostra[1].pets[1].name + "<br/>" +
+                    mostra[1].pets[2].animal + " chamado: " + mostra[1].pets[2].name + "<br/>" +
+                    "<img src='image/" + mostra[1].image + "'>";
+            };
         </script>
     </section>
 
 
     <section>
-        <strong>3) JSON - com jQuery</strong>
-        <p>Comece com o comando ".getJSON()" dentro dos parenteses insere o link do arquivo externo mais função</p>
-        <p>entre parenteses da função insirá um nome qualquer para os dados</p>
-        <p>Exibir no html nome e idade da primeira e segunda pessoa além do primeiro pet de cada, vindas do arquivo .json externo</p>
+        <strong>JSON - com jQuery</strong>
+        <br />1 - Comece com o comando "function" do jquery e dentro escreva "$.getJSON()" dentro dos parenteses insera
+        o
+        caminho do arquivo externo e depois da virgula escreva uma função
+        <br />2 - Entre parenteses da função insirá um nome qualquer para os dados exibir no html
+        <br /><b>3 - Exibir as duas imagens por primeiro, os dois nomes de pessoa, idade de cada e o pet cachorro e
+            tartaruga com seus nomes, vindo do arquivo: "json_demo.json"</b>
+        <br /><br />
         <i id="demo3"></i>
 
         <script>
             $(function () {
-                $.getJSON("json/json_demo.json", function (jsonExterno) {
+                $.getJSON("json/json_demo.json", function (declara) {
                     $("#demo3").html(
-                        jsonExterno[0].name + " " + jsonExterno[0].age + "anos<br/>" +
-                        jsonExterno[0].pets[0].animal + ": " + jsonExterno[0].pets[0].name + "<br/><br/>" + 
-                        jsonExterno[1].name + " " + jsonExterno[1].age + "anos<br/>" +
-                        jsonExterno[1].pets[0].animal + ": " + jsonExterno[1].pets[0].name + "<br/><br/>" + 
-                        "<img src=image/" + jsonExterno[0].image + " />"
+                        "<img src='image/" + declara[0].image + "'>" +
+                        declara[0].name + " " + declara[0].age + " anos, Pet: " + declara[0].pets[1].animal + " chamado: " + declara[0].pets[1].name + "<br/>" + 
+                        "<img src='image/" + declara[1].image + "'>" +
+                        declara[1].name + " " + declara[1].age + " anos, Pet: " + declara[1].pets[1].animal + " chamado: " + declara[1].pets[1].name                         
                     );
-                });
-            });
+                })
+            })
         </script>
     </section>
 
