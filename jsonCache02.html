@@ -14,7 +14,26 @@
     <h2>Página 02</h2>
 
     <section>
-        <strong>1) Recupere os dados em cache (vindos da página: json-jQuery-Cache01.html).</strong><br /><br />
+        <strong>1) Recupera os dados em cache vindos da página: jsonCache01.html</strong><br />
+        Tem que exibir... nome: John, idade: 30, Carros: Ford, BMW, Fiat e imagem do Hulk<br />
+        <br />
+        <i id="demo2"></i>
+
+        <script>
+            var pegando = localStorage.getItem("meusJson");
+            var mostrando = JSON.parse(pegando);
+
+            $("#demo2").html(
+                mostrando.nome + "<br/>" +
+                mostrando.idade + " anos" + "<br/>" +
+                "Carros: " + mostrando.carros + "<br/>" +
+                "<img src='image/" + mostrando.imagem + "'>"
+            );
+        </script>
+    </section>
+
+    <section>
+        <strong>2) Recupere os dados em cache (vindos da página: json-jQuery-Cache01.html).</strong><br /><br />
         1 - Cria function e variável para pegar lista de objetos deste html<br />
         2 - Cria variável para "localStorage.getItem()" dentro das aspas inserir o nome que foi dado ao "setItem" página
         1<br />
@@ -43,25 +62,6 @@
 
                 $("input").hide();
             }
-        </script>
-    </section>
-
-    <section>
-        <strong>2) Recupere os dados em cache (vindos da página: json-jQuery-Cache01.html)</strong><br />
-        Tem que exibir... nome: John, idade: 30, Carros: Ford, BMW, Fiat e imagem do Hulk<br />
-        <br />
-        <i id="demo2"></i>
-
-        <script>
-            var pegando = localStorage.getItem("meusJson");
-            var mostrando = JSON.parse(pegando);
-
-            $("#demo2").html(
-                mostrando.nome + "<br/>" +
-                mostrando.idade + " anos" + "<br/>" +
-                "Carros: " + mostrando.carros + "<br/>" +
-                "<img src='image/" + mostrando.imagem + "'>"
-            );
         </script>
     </section>
 

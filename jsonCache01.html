@@ -13,7 +13,27 @@
     <h2>Página 01</h2>
 
     <section>
-        <strong>1) Armazena dados em cache (simulando um servidor)</strong><br /><br />
+        <strong>1) Pegando informação json e mostrando ao abrir a página jsonCache02.html</strong><br /><br />
+        Neste caso não tem interação de formulário os objetos já estão armazenados só para mostrar tudo na página:
+        jsonCache02.html<br />
+        <br />
+        1 - Cria uma variável objeto pegando os valores: nome: John, idade: 30, carros: [Ford, BMW, Fiat], image:
+        green-hulk.gif
+
+        <script>
+            meusObjetos = {
+                "nome": "John",
+                "idade": 30,
+                "carros": ["Ford", " BMW", " Fiat"],
+                "imagem": "green-hulk.gif"
+            };
+            var jsonMeu = JSON.stringify(meusObjetos);
+            localStorage.setItem("meusJson", jsonMeu);
+        </script>
+    </section>
+
+    <section>
+        <strong>2) Armazena dados em cache (simulando um servidor)</strong><br /><br />
         1 - Cria function e uma variável objeto pegando os valores dos formulários<br />
         2 - Cria uma variável, pega os objetos atraves do "JSON.stringify()" dentro dos parêntese insere nome dado aos
         objetos<br />
@@ -28,11 +48,12 @@
             <br />
             <input type="number" name="age" placeholder="idade" pattern="[0-9]*" inputmode="numeric" class="campos" />
             <br /><br />
-            <input type="button" name="submit" value="Gravar em cache" onclick="objects()">
+            <a href="javascript:void(0)" onclick="objects()">GRAVAR EM CACHE e ABRIR PÁGINA 02</a>
         </form>
 
         <script>
             function objects() {
+                var link = document.querySelector("a");
                 var declara = "";
                 var objetos = {
                     "nome": document.form01.fname.value,
@@ -44,34 +65,17 @@
 
                 /* alert(objetos.nome + objetos.sobrenome + objetos.idade); */
 
-                if(objetos.nome == "" || objetos.sobrenome == "" || objetos.idade == ""){
+                if (objetos.nome == "" || objetos.sobrenome == "" || objetos.idade == "") {
                     alert("É preciso preencher todos os campos");
-                }else{
-                    alert("OK \nAgora troca na URL 01 para 02 e Enter");
+                } else {
+                    alert("Informações salvas \nAbrindo página 02");
+                    link.href = "jsonCache02.html";
                 }
             }
         </script>
     </section>
 
-    <section>
-        <strong>2) Mesmo caso do primeiro acima.</strong><br /><br />
-        Neste caso não tem interação de formulário os objetos já estão armazenados só para mostrar tudo na página:
-        json-jQuery-Cache02.html<br />
 
-        1 - Cria uma variável objeto pegando os valores: nome: John, idade: 30, carros: [Ford, BMW, Fiat], image:
-        green-hulk.gif
-
-        <script>
-             meusObjetos = {
-                "nome": "John", 
-                "idade": 30, 
-                "carros": ["Ford", " BMW", " Fiat"],
-                "imagem": "green-hulk.gif"
-            };
-            var jsonMeu = JSON.stringify(meusObjetos);
-            localStorage.setItem("meusJson", jsonMeu);
-        </script>
-    </section>
 
 </body>
 
